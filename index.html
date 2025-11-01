@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindKitHub — гид по саморазвитию</title>
+  <meta name="description" content="MindKitHub — дружелюбный навигатор по саморазвитию и обучению. Подборки курсов, книг и инструментов. Подписка на закрытые гайды.">
+  <style>
+    :root {
+      --bg: radial-gradient(circle at top, #0f172a 0%, #020617 40%, #000 100%);
+      --surface: rgba(15, 23, 42, 0.5);
+      --border: rgba(148, 163, 184, 0.1);
+      --accent: #38bdf8;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(18px);
+      background: rgba(2, 6, 23, .3);
+      border-bottom: 1px solid rgba(148,163,184,0.04);
+      z-index: 10;
+    }
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+    .logo {
+      font-weight: 700;
+      letter-spacing: -.03em;
+    }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: .9rem;
+    }
+    nav a:hover { color: #fff; }
+    .btn {
+      background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+      border: none;
+      border-radius: 999px;
+      padding: 7px 14px;
+      color: #020617;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    main {
+      padding: 46px 0 60px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.02fr .9fr;
+      gap: 30px;
+      align-items: center;
+      padding-top: 20px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      gap: 5px;
+      background: rgba(148, 163, 184, 0.12);
+      border: 1px solid rgba(148, 163, 184, 0.06);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: .62rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    h1.hero-title {
+      font-size: clamp(2.45rem, 5vw, 3.15rem);
+      line-height: 1.02;
+      margin: 0 0 15px;
+    }
+    .hero p {
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 20px;
+    }
+    .hero-card {
+      background: radial-gradient(circle, rgba(148,163,184,0.22), rgba(15,23,42,0) 70%);
+      border: 1px solid rgba(148,163,184,0.08);
+      border-radius: 18px;
+      padding: 18px 16px 16px;
+    }
+    section {
+      margin-top: 60px;
+    }
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 18px;
+    }
+    .muted { color: var(--muted); }
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    }
+    .card {
+      background: rgba(15, 23, 42, .4);
+      border: 1px solid rgba(148, 163, 184, 0.03);
+      border-radius: 16px;
+      padding: 14px 14px 16px;
+    }
+    .badge {
+      background: rgba(56,189,248,.12);
+      border: 1px solid rgba(56,189,248,.2);
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: .6rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: 6px;
+    }
+    .pricing {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .price-card {
+      background: radial-gradient(circle, rgba(56,189,248,.1), rgba(15,23,42,0) 70%);
+      border: 1px solid rgba(56,189,248,.25);
+      border-radius: 18px;
+      padding: 16px 16px 18px;
+    }
+    .price {
+      font-size: 2.05rem;
+      font-weight: 700;
+      margin: 12px 0 4px;
+    }
+    footer {
+      text-align: center;
+      color: rgba(148, 163, 184, .5);
+      font-size: .75rem;
+      margin-top: 45px;
+      padding-bottom: 20px;
+    }
+    @media (max-width: 880px) {
+      .hero { grid-template-columns: 1fr; }
+      nav { display: none; }
+      h1.hero-title { font-size: 2.4rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">MindKitHub</div>
+      <nav>
+        <a href="#about">О проекте</a>
+        <a href="#inside">Что внутри</a>
+        <a href="#pricing">Подписка</a>
+      </nav>
+      <button class="btn" onclick="goTG()">В Telegram</button>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">саморазвитие • обучение • рост</span>
+        <h1 class="hero-title">MindKitHub — твой дружелюбный гид по росту.</h1>
+        <p>Мы отбираем лучшие курсы, книги и инструменты по саморазвитию и складываем в удобные подборки. Без воды и инфошума.</p>
+        <button class="btn" onclick="goTG()">Подписаться в Telegram</button>
+      </div>
+      <div class="hero-card">
+        <p class="muted" style="margin:0;">Внутри:</p>
+        <h2 style="margin:4px 0 10px;">Подборки, гайды и обновления</h2>
+        <p class="muted" style="margin-bottom:10px;">+ доступ к закрытым материалам для подписчиков MindKitHub+</p>
+        <p style="margin:0;"><strong>Обновления:</strong> 1–2 раза в неделю</p>
+        <p style="margin:4px 0 0;"><strong>Формат:</strong> Telegram + PDF/Notion</p>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 class="section-title">О проекте</h2>
+      <p class="muted" style="max-width: 650px;">
+        MindKitHub — это не ещё один курс. Это навигатор: мы показываем, что стоит изучать, в какой последовательности и где это взять. Ты экономишь время на поиске и получаешь только рабочие материалы.
+      </p>
+    </section>
+
+    <section id="inside">
+      <h2 class="section-title">Что внутри</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <span class="badge">Подборки</span>
+          <h3>Лучшие курсы и каналы</h3>
+          <p class="muted">Собираем по темам: фокус, привычки, мышление, карьера, деньги.</p>
+        </article>
+        <article class="card">
+          <span class="badge">Гайды</span>
+          <h3>Пошаговые планы</h3>
+          <p class="muted">Как выбрать курс, как учиться системно, как не бросать.</p>
+        </article>
+        <article class="card">
+          <span class="badge">Обновления</span>
+          <h3>Новые материалы каждую неделю</h3>
+          <p class="muted">Следим за трендами в образовании и саморазвитии.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <h2 class="section-title">Подписка MindKitHub+</h2>
+      <p class="muted">Для тех, кто хочет больше практики и структурированные материалы.</p>
+      <div class="pricing" style="margin-top:18px;">
+        <div class="price-card">
+          <h3>Месяц доступа</h3>
+          <p class="price">490 ₽</p>
+          <p class="muted">Доступ к закрытым гайдам и подборкам.</p>
+          <ul style="list-style:none;padding:0;margin:12px 0 0;">
+            <li>✔ PDF / Notion-гайды</li>
+            <li>✔ Расширенные подборки</li>
+            <li>✔ Обновления в течение месяца</li>
+          </ul>
+          <button class="btn" style="margin-top:16px;" onclick="goBot()">Оформить через Telegram</button>
+        </div>
+        <div class="card">
+          <h3>Бесплатно</h3>
+          <p class="muted">Подписка на открытый канал с базовыми подборками.</p>
+          <button class="btn" style="margin-top:12px;" onclick="goTG()">Перейти в канал</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    © <span id="year"></span> MindKitHub. Всё о саморазвитии в одном месте.
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function goTG() {
+      window.location.href = "https://t.me/mindkithub";
+    }
+    function goBot() {
+      window.location.href = "https://t.me/mindkitbot";
+    }
+  </script>
+</body>
+</html>
