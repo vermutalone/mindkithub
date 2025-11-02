@@ -13,9 +13,18 @@
       line-height: 1.6;
     }
     .container { max-width: 820px; margin: 0 auto; padding: 0 16px; }
-    nav { display: flex; gap: 14px; }
-    nav a { color: #94a3b8; text-decoration: none; }
-    nav a:hover { color: #fff; }
+    header { position: sticky; top:0; background: rgba(2,6,23,.35); backdrop-filter: blur(16px); }
+    .nav { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:14px 0; }
+    nav { display:flex; gap:14px; }
+    nav a { color:#94a3b8; text-decoration:none; }
+    nav a:hover { color:#fff; }
+    .btn {
+      background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+      border: none; border-radius: 999px;
+      padding: 7px 14px; color: #020617; font-weight: 600;
+      cursor: pointer;
+    }
+    main { padding: 46px 0 60px; }
     .support-box {
       background: rgba(15,23,42,.35);
       border: 1px solid rgba(148,163,184,.06);
@@ -30,37 +39,44 @@
       margin-top: 45px;
       padding-bottom: 20px;
     }
-    footer a { color: #38bdf8; text-decoration: none; }
+    footer a { color:#38bdf8; text-decoration:none; }
+    @media (max-width: 880px) { nav { display:none; } }
   </style>
 </head>
 <body>
-  <header class="container" style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;">
-    <div class="logo" style="font-weight:700;">MindKitHub</div>
-    <nav>
-      <a href="index.html">Главная</a>
-      <a href="faq.html">FAQ</a>
-      <a href="support.html">Поддержка</a>
-      <a href="legal.html">Legal</a>
-    </nav>
-    <button class="btn" onclick="goTG()">В Telegram</button>
+  <header>
+    <div class="container nav">
+      <div style="font-weight:700;">MindKitHub</div>
+      <nav>
+        <a href="index.html">Главная</a>
+        <a href="faq.html">FAQ</a>
+        <a href="support.html">Поддержка</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+      <button class="btn" onclick="goTG()">В Telegram</button>
+    </div>
   </header>
 
   <main class="container">
     <h1>Поддержка</h1>
+    <p>Если что-то не работает, не пришёл доступ или вы правообладатель — пишите, мы ответим.</p>
+
     <div class="support-box">
-      <h3>Связаться в Telegram</h3>
-      <p>Используй нашего бота <a href="https://t.me/mindkitsupportbot" style="color:#38bdf8;">@mindkitsupportbot</a> — он принимает обращения 24/7.</p>
+      <h3>1. Бот-поддержка</h3>
+      <p>Самый быстрый способ получить ответ:</p>
+      <p><a href="https://t.me/mindkitsupportbot" style="color:#38bdf8;">@mindkitsupportbot</a></p>
     </div>
 
     <div class="support-box">
-      <h3>Написать на почту</h3>
-      <p>Если вопрос требует прикрепить документы или файлы — пиши на <a href="mailto:mindkithub@yandex.ru" style="color:#38bdf8;">mindkithub@yandex.ru</a>.</p>
+      <h3>2. Email</h3>
+      <p>Если нужно прикрепить файл / чек / документ:</p>
+      <p><a href="mailto:mindkithub@yandex.ru" style="color:#38bdf8;">mindkithub@yandex.ru</a></p>
     </div>
   </main>
 
   <footer>
-    © <span id="year"></span> MindKitHub · 
-    <a href="mailto:mindkithub@yandex.ru">mindkithub@yandex.ru</a> · 
+    © <span id="year"></span> MindKitHub ·
+    <a href="mailto:mindkithub@yandex.ru">mindkithub@yandex.ru</a> ·
     <a href="https://t.me/mindkitsupportbot">@mindkitsupportbot</a>
   </footer>
   <script>
@@ -69,4 +85,3 @@
   </script>
 </body>
 </html>
-
