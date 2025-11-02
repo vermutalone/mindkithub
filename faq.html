@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — MindKitHub</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0%, #020617 40%, #000 100%);
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(18px);
+      background: rgba(2, 6, 23, .3);
+      border-bottom: 1px solid rgba(148,163,184,0.04);
+      z-index: 10;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 16px;
+    }
+    nav { display: flex; gap: 14px; }
+    nav a { color: #94a3b8; text-decoration: none; }
+    nav a:hover { color: #fff; }
+    .btn {
+      background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+      border: none;
+      border-radius: 999px;
+      padding: 7px 14px;
+      color: #020617;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    main { padding: 46px 0 60px; }
+    h1 { font-size: 2.1rem; margin-bottom: 12px; }
+    .muted { color: #94a3b8; }
+    .faq-item {
+      background: rgba(15,23,42,.35);
+      border: 1px solid rgba(148,163,184,.06);
+      border-radius: 14px;
+      padding: 16px 16px 10px;
+      margin-bottom: 14px;
+    }
+    footer {
+      text-align: center;
+      color: rgba(148, 163, 184, .5);
+      font-size: .75rem;
+      margin-top: 45px;
+      padding-bottom: 20px;
+    }
+    @media (max-width: 880px) {
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo" style="font-weight:700;">MindKitHub</div>
+      <nav>
+        <a href="index.html">Главная</a>
+        <a href="faq.html">FAQ</a>
+        <a href="support.html">Поддержка</a>
+        <a href="legal.html">Юр. информация</a>
+      </nav>
+      <button class="btn" onclick="goTG()">В Telegram</button>
+    </div>
+  </header>
+  <main class="container">
+    <h1>Частые вопросы</h1>
+    <p class="muted">Собрали ответы на то, что обычно спрашивают про MindKitHub.</p>
+
+    <div class="faq-item">
+      <h3>Что такое MindKitHub?</h3>
+      <p class="muted">Это навигатор по саморазвитию и обучению. Мы не продаём чужие курсы — мы показываем, что изучать и в какой последовательности.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Что входит в подписку?</h3>
+      <p class="muted">Расширенные подборки материалов, структурированные гайды (PDF/Notion), обновления и доступ к закрытому контенту.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Как я получу доступ после оплаты?</h3>
+      <p class="muted">После оплаты через Telegram-бота вы автоматически получите доступ к закрытым материалам. Если доступ не пришёл — напишите в поддержку.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Могу ли я отменить подписку?</h3>
+      <p class="muted">Да, вы можете отказаться от подписки, и она не продлится на следующий период.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Вы используете чужие курсы?</h3>
+      <p class="muted">Мы работаем только с открытыми материалами и оформляем их в удобную для обучения систему. Также у нас могут быть авторские и партнёрские курсы.</p>
+    </div>
+  </main>
+  <footer>
+    © <span id="year"></span> MindKitHub
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function goTG() {
+      window.location.href = "https://t.me/mindkithub";
+    }
+  </script>
+</body>
+</html>
