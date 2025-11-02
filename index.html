@@ -14,6 +14,7 @@
     }
     html { background: #020617; scroll-behavior: smooth; }
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -31,54 +32,102 @@
     @keyframes fadeOut { to { opacity: 0; } }
 
     header {
-      position: sticky; top: 0;
+      position: sticky;
+      top: 0;
       backdrop-filter: blur(16px);
-      background: rgba(2, 6, 23, .35);
+      background: rgba(2,6,23,.35);
       border-bottom: 1px solid rgba(148,163,184,0.04);
       z-index: 20;
     }
-    .container { max-width: 1060px; margin: 0 auto; padding: 0 16px; width: 100%; }
-    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; }
-    .logo { font-weight: 700; text-decoration: none; color: inherit; white-space: nowrap; }
-
-    nav.desktop { display: flex; gap: 14px; align-items: center; }
-    nav.desktop a { color: var(--muted); text-decoration: none; font-size: .9rem; }
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 16px;
+      width: 100%;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+    .logo {
+      font-weight: 700;
+      text-decoration: none;
+      color: inherit;
+      white-space: nowrap;
+    }
+    nav.desktop {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+    nav.desktop a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .9rem;
+    }
     nav.desktop a:hover { color: #fff; }
 
     .btn {
       background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
-      border: none; border-radius: 999px;
+      border: none;
+      border-radius: 999px;
       padding: 7px 14px;
-      color: #020617; font-weight: 600;
-      cursor: pointer; white-space: nowrap;
+      color: #020617;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
     }
+    /* большая кнопка только на десктопе */
+    .top-action { display: inline-flex; }
+
     .burger {
-      display: none; background: none; border: none;
-      color: #e2e8f0; font-size: 1.6rem; cursor: pointer;
+      display: none;
+      background: none;
+      border: none;
+      color: #e2e8f0;
+      font-size: 1.6rem;
+      cursor: pointer;
     }
     .mobile-menu {
-      display: none; flex-direction: column;
-      background: rgba(2,6,23,.95);
-      position: absolute; top: 54px; right: 0; left: 0;
-      padding: 10px 16px 14px; gap: 10px;
+      display: none;
+      flex-direction: column;
+      background: rgba(2,6,23,.98);
+      position: absolute;
+      top: 54px;
+      right: 0;
+      left: 0;
+      padding: 10px 16px 14px;
+      gap: 10px;
       border-bottom: 1px solid rgba(148,163,184,.08);
     }
-    .mobile-menu a { color: #e2e8f0; text-decoration: none; font-size: .95rem; }
-
-    main { flex: 1; padding: 46px 0 60px; }
-    h1.hero-title {
-      font-size: clamp(2.45rem, 5vw, 3.15rem);
-      line-height: 1.02; margin: 0 0 15px;
+    .mobile-menu a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-size: .95rem;
     }
+    .mobile-menu .btn { width: fit-content; }
+
+    main {
+      flex: 1;
+      padding: 46px 0 60px;
+    }
+
+    /* hero */
     .hero {
       display: grid;
       grid-template-columns: 1.02fr .9fr;
-      gap: 30px; align-items: center; padding-top: 20px;
+      gap: 30px;
+      align-items: center;
+      padding-top: 20px;
     }
     .eyebrow {
-      display: inline-flex; gap: 5px;
-      background: rgba(148, 163, 184, 0.12);
-      border: 1px solid rgba(148, 163, 184, 0.06);
+      display: inline-flex;
+      gap: 5px;
+      background: rgba(148,163,184,.12);
+      border: 1px solid rgba(148,163,184,.06);
       border-radius: 999px;
       padding: 4px 10px;
       font-size: .62rem;
@@ -87,26 +136,83 @@
       color: var(--muted);
       margin-bottom: 12px;
     }
-    .hero p { color: var(--muted); max-width: 520px; margin-bottom: 20px; }
+    h1.hero-title {
+      font-size: clamp(2.4rem, 4vw, 3.15rem);
+      line-height: 1.02;
+      margin: 0 0 15px;
+    }
+    .hero p {
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 20px;
+    }
     .hero-card {
       background: radial-gradient(circle, rgba(148,163,184,0.22), rgba(15,23,42,0) 70%);
       border: 1px solid rgba(148,163,184,0.08);
       border-radius: 18px;
       padding: 18px 16px 16px;
     }
+
+    /* sections */
+    section { margin-top: 60px; }
+    .section-title { font-size: 1.6rem; margin-bottom: 18px; }
+    .muted { color: var(--muted); }
+
+    .grid { display: grid; gap: 16px; }
+    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+
+    .card {
+      background: rgba(15,23,42,.4);
+      border: 1px solid rgba(148,163,184,0.03);
+      border-radius: 16px;
+      padding: 14px 14px 16px;
+    }
+    .badge {
+      background: rgba(56,189,248,.12);
+      border: 1px solid rgba(56,189,248,.2);
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: .6rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: 6px;
+    }
+
+    .pricing {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .price-card {
+      background: radial-gradient(circle, rgba(56,189,248,.1), rgba(15,23,42,0) 70%);
+      border: 1px solid rgba(56,189,248,.25);
+      border-radius: 18px;
+      padding: 16px 16px 18px;
+    }
+    .price { font-size: 2.05rem; font-weight: 700; margin: 12px 0 4px; }
+
     footer {
-      text-align: center; color: rgba(148, 163, 184, .5);
-      font-size: .75rem; padding: 20px 16px 24px;
+      text-align: center;
+      color: rgba(148, 163, 184, .5);
+      font-size: .75rem;
+      padding: 20px 16px 24px;
     }
     footer a { color: var(--accent); text-decoration: none; }
+
+    /* Мобильный */
     @media (max-width: 880px) {
+      .nav { padding: 10px 0; }
       nav.desktop { display: none; }
       .burger { display: block; }
-      .hero { grid-template-columns: 1fr; }
+      .top-action { display: none; }
+      .hero { grid-template-columns: 1fr; padding-top: 10px; }
+      h1.hero-title { font-size: 2.05rem; }
+      main { padding-top: 34px; }
+      section { margin-top: 42px; }
     }
   </style>
 </head>
-
 <body>
   <header>
     <div class="container nav">
@@ -117,7 +223,7 @@
         <a href="/support/">Поддержка</a>
         <a href="/terms/">Terms</a>
       </nav>
-      <button class="btn" onclick="goTG()">В Telegram</button>
+      <button class="btn top-action" onclick="goTG()">В Telegram</button>
       <button class="burger" id="burger">☰</button>
     </div>
     <div class="mobile-menu" id="mobileMenu">
@@ -125,10 +231,12 @@
       <a href="/faq/">FAQ</a>
       <a href="/support/">Поддержка</a>
       <a href="/terms/">Terms</a>
+      <button class="btn" onclick="goTG()">В Telegram</button>
     </div>
   </header>
 
   <main class="container">
+    <!-- HERO -->
     <section class="hero">
       <div>
         <span class="eyebrow">саморазвитие • обучение • рост</span>
@@ -142,17 +250,73 @@
         <p><strong>Формат:</strong> Telegram + PDF/Notion</p>
       </div>
     </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2 class="section-title">О проекте</h2>
+      <p class="muted" style="max-width: 650px;">
+        MindKitHub — это навигатор: мы показываем, что стоит изучать, в какой последовательности и где это взять.
+        Ты экономишь время на поиске и получаешь только рабочие материалы.
+      </p>
+    </section>
+
+    <!-- INSIDE -->
+    <section id="inside">
+      <h2 class="section-title">Что внутри</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <span class="badge">Подборки</span>
+          <h3>Лучшие курсы и каналы</h3>
+          <p class="muted">Собираем по темам: фокус, привычки, мышление, карьера, деньги.</p>
+        </article>
+        <article class="card">
+          <span class="badge">Гайды</span>
+          <h3>Пошаговые планы</h3>
+          <p class="muted">Как выбрать курс, как учиться системно, как не бросать.</p>
+        </article>
+        <article class="card">
+          <span class="badge">Обновления</span>
+          <h3>Новые материалы каждую неделю</h3>
+          <p class="muted">Следим за обучающим контентом и обновляем библиотеку.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing">
+      <h2 class="section-title">Подписка MindKitHub+</h2>
+      <p class="muted">Для тех, кто хочет больше практики и структурированные материалы.</p>
+      <div class="pricing" style="margin-top:18px;">
+        <div class="price-card">
+          <h3>Месяц доступа</h3>
+          <p class="price">490 ₽</p>
+          <p class="muted">Доступ к закрытым гайдам и подборкам.</p>
+          <ul style="list-style:none;padding:0;margin:12px 0 0;">
+            <li>✔ PDF / Notion-гайды</li>
+            <li>✔ Расширенные подборки</li>
+            <li>✔ Обновления в течение месяца</li>
+          </ul>
+          <button class="btn" style="margin-top:16px;" onclick="goBot()">Оформить через Telegram</button>
+        </div>
+        <div class="card">
+          <h3>Бесплатно</h3>
+          <p class="muted">Подписка на открытый канал с базовыми подборками.</p>
+          <button class="btn" style="margin-top:12px;" onclick="goTG()">Перейти в канал</button>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    © <span id="year"></span> MindKitHub · 
-    <a href="mailto:mindkithub@yandex.ru">mindkithub@yandex.ru</a> · 
+    © <span id="year"></span> MindKitHub ·
+    <a href="mailto:mindkithub@yandex.ru">mindkithub@yandex.ru</a> ·
     <a href="https://t.me/mindkitsupportbot">@mindkitsupportbot</a>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     function goTG() { window.location.href = "https://t.me/mindkithub"; }
+    function goBot() { window.location.href = "https://t.me/mindkitbot"; }
 
     const burger = document.getElementById('burger');
     const mobile = document.getElementById('mobileMenu');
@@ -160,7 +324,7 @@
       mobile.style.display = mobile.style.display === 'flex' ? 'none' : 'flex';
     });
 
-    // Плавный переход между страницами
+    // плавный переход
     const links = document.querySelectorAll('a[href^="/"]');
     links.forEach(link => {
       link.addEventListener('click', (e) => {
